@@ -1,0 +1,25 @@
+[project]
+name = "similar_framework_finder_template"
+version = "0.1.0"
+description = "similar-framework-finder-template using crewAI"
+authors = [
+    { name = "Ping Wu", email = "ping@ping-ai.com" },
+]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.76.2",
+    "langchain-core>=0.2.30",
+]
+
+[project.scripts]
+similar_framework_finder_template = "similar_framework_finder_template.main:run"
+run_crew = "similar_framework_finder_template.main:run"
+train = "similar_framework_finder_template.main:train"
+replay = "similar_framework_finder_template.main:replay"
+test = "similar_framework_finder_template.main:test"
+
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
