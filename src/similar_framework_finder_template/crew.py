@@ -12,68 +12,51 @@ class SimilarFrameworkFinderTemplateCrew:
     tasks_config = "config/tasks.yaml"
 
     @agent
-    def platform_analyst(self) -> Agent:
+    def researcher(self) -> Agent:
         return Agent(
-            config=self.agents_config["platform_analyst"],
+            config=self.agents_config["researcher"],
             tools=[SerperDevTool(), ScrapeWebsiteTool()],
             allow_delegation=False,
             verbose=True,
         )
 
     @agent
-    def market_researcher(self) -> Agent:
+    def analysis_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config["market_researcher"],
+            config=self.agents_config["analysis_agent"],
             tools=[SerperDevTool(), ScrapeWebsiteTool()],
             allow_delegation=False,
             verbose=True,
         )
 
     @agent
-    def similarity_evaluator(self) -> Agent:
+    def recommendation_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config["similarity_evaluator"],
-            tools=[],
-            allow_delegation=False,
-            verbose=True,
-        )
-
-    @agent
-    def consultation_strategist(self) -> Agent:
-        return Agent(
-            config=self.agents_config["consultation_strategist"],
+            config=self.agents_config["recommendation_agent"],
             tools=[],
             allow_delegation=False,
             verbose=True,
         )
 
     @task
-    def analyze_target_platform_task(self) -> Task:
+    def research_task(self) -> Task:
         return Task(
-            config=self.tasks_config["analyze_target_platform_task"],
-            agent=self.platform_analyst(),
+            config=self.tasks_config["research_task"],
+            agent=self.researcher(),
         )
 
     @task
-    def find_potential_similar_platforms_task(self) -> Task:
+    def analysis_task(self) -> Task:
         return Task(
-            config=self.tasks_config["find_potential_similar_platforms_task"],
-            agent=self.market_researcher(),
+            config=self.tasks_config["analysis_task"],
+            agent=self.analysis_agent(),
         )
 
     @task
-    def evaluate_similarity_task(self) -> Task:
+    def recommendation_task(self) -> Task:
         return Task(
-            config=self.tasks_config["evaluate_similarity_task"],
-            agent=self.similarity_evaluator(),
-        )
-
-    @task
-    def develop_approach_recommendations_task(self) -> Task:
-        return Task(
-            config=self.tasks_config["develop_consultation_recommendations_task"],
-            agent=self.consultation_strategist(),
-            output_file="consultation_recommendations.md",
+            config=self.tasks_config["recommendation_task"],
+            agent=self.recommendation_agent(),
         )
 
     @crew
