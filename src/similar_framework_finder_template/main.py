@@ -14,8 +14,9 @@ def run():
     Run the crew.
     """
     inputs = {
-        "target_platform": "crewai",
-        "pain_points": "Low code, no code AI Application Development",
+        "Product_Category": "Cereal", 
+        "Target_Brands": "Honey Bunches of Oats, Kellogg's",
+        "Key_Features": "Low in sugar, No artificial colors or flavors, No preservatives",
     }
 
     SimilarFrameworkFinderTemplateCrew().crew().kickoff(inputs=inputs)
