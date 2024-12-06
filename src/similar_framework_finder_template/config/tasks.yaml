@@ -1,46 +1,41 @@
-analyze_target_platform_task:
+research_task:
   description: >
-    Conduct a comprehensive analysis of {target_platform}. Focus on key
-    characteristics such as industry, size, location, product offerings,
-    target market, and any unique attributes. Consider how these characteristics
-    might relate to their potential need for {pain_points}.
+    Conduct a thorough research about {Product_Category} ingredients for {Target_Brands}, 
+    focusing on {Key_Features}. Systematically gather product ingredient lists, 
+    validate accuracy of collected information, and ensure comprehensive data sourcing.
   expected_output: >
-    A detailed profile of {target_platform}, highlighting the key characteristics
-    that will be used to find similar platforms. Include any insights about how
-    these characteristics might influence their interest in solving their {pain_points}.
+    A standardized ingredient list spreadsheet for {Target_Brands} including:
+    - Comprehensive ingredient details
+    - Preliminary allergen risk assessment
+    - Data validation log
+    - Cross-referenced information sources
+    - Standardized ingredient terminology
+  agent: researcher
 
-find_potential_similar_platforms_task:
+analysis_task:
   description: >
-    Using the profile of {target_platform}, search for and identify other
-    platforms that share similar characteristics. Look for platforms in the
-    same or adjacent industries, of similar size, with comparable product
-    offerings or target markets. Aim to find at least 10 potential matches.
+    Scientifically assess ingredient safety profiles for {Product_Category} from {Target_Brands},
+    with a specific focus on {Key_Features}. Evaluate ingredients against health standards, 
+    detect potential health risks, and perform comprehensive nutritional comparative analysis.
   expected_output: >
-    A list of at least 10 platforms that potentially match the profile of
-    {target_platform}, including basic information about each (name, industry,
-    size, location, key products, website).
+    A detailed ingredient safety report containing:
+    - Comprehensive nutritional impact analysis
+    - Additive risk classification
+    - Evidence-based health risk evaluation
+    - Comparative nutritional breakdown for {Target_Brands}
+    - Detailed assessment of {Key_Features} related health implications
+  agent: analysis_agent
 
-evaluate_similarity_task:
+recommendation_task:
   description: >
-    Evaluate each of the potential similar platforms identified. Compare them
-    to the profile of {target_platform}, considering all relevant factors. Assign
-    a similarity score to each platform on a scale of 0 to 1, where 1 is most
-    similar. Provide a brief explanation for each score.
+    Generate personalized health recommendations for {Product_Category}, 
+    focusing on {Target_Brands} and {Key_Features}. Develop tailored allergen avoidance 
+    strategies and create context-aware product alternatives.
   expected_output: >
-    A list of evaluated platforms, each with a similarity score and brief
-    explanation. Platforms should be sorted by similarity score, with the
-    most similar platforms at the top.
-
-develop_consultation_recommendations_task:
-  description: >
-    Based on the analysis of {target_platform} and the identified similar
-    platforms, develop recommendations for how the consulting team should approach
-    these prospects about {pain_points}. Consider common characteristics,
-    potential pain points, and how each platform might address their needs.
-  expected_output: >
-    A SimilarCompanyFinderResult object containing:
-    1. The detailed profile of {target_platform}
-    2. A list of similar platforms (SimilarCompany objects), including their
-       similarity scores
-    3. Recommendations for the consulting team, including key talking
-       points and strategies for engaging these similar platforms
+    A comprehensive personalized recommendation report including:
+    - Tailored product recommendations
+    - Allergen-free alternative suggestions
+    - Personalized nutrition guidance
+    - Health optimization strategies specific to {Target_Brands}
+    - Actionable insights addressing {Key_Features}
+  agent: recommendation_agent
